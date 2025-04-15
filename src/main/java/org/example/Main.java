@@ -16,12 +16,30 @@ public class Main {
         while (step != -1) {
             System.out.println("1-Exit,2-Save,3-View,4-Delete");
             step = sc.nextInt();
-            switch (step){
+            switch (step) {
                 case 1:
-                    System.out.print("Name:");
-                    String name = sc.next();
-                    dbService.addCountry(name,result);
+                    System.out.println("Exit...");
+                    step = 0;
                     break;
+                case 2:
+                    System.out.println("1-Exit,2-Country,3-Region");
+                    step = sc.nextInt();
+                    switch (step) {
+                        case 1:
+                            System.out.print("Name:");
+                            String Cname = sc.next();
+                            dbService.addCountry(Cname, result);
+                            break;
+                        case 2:
+                            System.out.print("Name:");
+                            String Rname = sc.next();
+                            dbService.getCountry();
+                            System.out.println("Country_id: ");
+                    }
+
+                    break;
+                case 3:
+
             }
         }
     }

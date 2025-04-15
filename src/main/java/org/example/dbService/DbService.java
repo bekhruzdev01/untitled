@@ -27,4 +27,13 @@ public class DbService {
         result.setSuccess(cs.getBoolean(3));
         return result;
     }
+    public void getCountry() throws SQLException, ClassNotFoundException {
+        PreparedStatement ps = getConnection().prepareStatement("select * from country");
+
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            System.out.print("ID: " + rs.getInt(1) + " Name: ");
+            System.out.println(rs.getString(2));
+        }
+    }
 }

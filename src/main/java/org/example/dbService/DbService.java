@@ -36,6 +36,25 @@ public class DbService {
             System.out.println(rs.getString(2));
         }
     }
+    public Result addRegion(String name, Integer countryid, Result result) throws SQLException, ClassNotFoundException {
+
+        String query = "{call add_region(?,?,?,?)}";
+        CallableStatement pS = getConnection().prepareCall(query);
+
+        pS.setString(1, name);
+        pS.setInt(2, countryid);
+
+        pS.registerOutParameter(3, Types.VARCHAR);
+        pS.registerOutParameter(4, Types.BOOLEAN);
+
+        pS.execute();
+
+        result.setMessage(pS.getString(3));
+        result.setSuccess(pS.getBoolean(4));
+
+        return result;
+
+    }
     public Result editRegion(Integer id, String name, Integer countryId, Result result) throws SQLException, ClassNotFoundException {
         String query = "{call region(?,?,?,?,?)}";
         CallableStatement pS = getConnection().prepareCall(query);

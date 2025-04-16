@@ -36,4 +36,16 @@ public class DbService {
             System.out.println(rs.getString(2));
         }
     }
+    public String deleteRegion(Integer id) throws SQLException, ClassNotFoundException {
+        String query = "delete from region where id = ?";
+        PreparedStatement preparedStatement = getConnection().prepareStatement(query);
+        preparedStatement.setInt(1, id);
+        int delete = preparedStatement.executeUpdate();
+        if (delete==1){
+            return "success";
+        }
+        else{
+            return "fail";
+        }
+    }
 }

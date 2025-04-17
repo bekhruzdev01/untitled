@@ -28,7 +28,7 @@ public class MenuServlet extends HttpServlet {
                             "            <td>" + book.getWriter() + "</td>\n" +
                             "            <td>" + book.getYear() + "-yil</td>\n" +
                             "            <td>\n" +
-                            "                <button class=\"btn btn-warning\">Taxrirlash</button>\n" +
+                            "                <button class=\"btn btn-warning\" onClick=\"editBook\">Taxrirlash</button>\n" +
                             "            </td>\n" +
                             "            <td>\n" +
                             "                <button class=\"btn btn-danger\">O'chirish</button>\n" +
@@ -68,6 +68,17 @@ public class MenuServlet extends HttpServlet {
                 "    </table>\n" +
                 "</div>\n" +
                 "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js\"></script>\n" +
+                "<script>\n" +
+                "    function editBook() {\n" +
+                "      fetch(\"http://localhost:8080/edit\")\n" +
+                "        .then(response => response.text())\n" +
+                "        .then(alert(\"Ishladi\"))\n" +
+                "        .catch(error => {\n" +
+                "          document.getElementById(\"result\").innerText = \"Xatolik yuz berdi\";\n" +
+                "          console.error(error);\n" +
+                "        });\n" +
+                "    }\n" +
+                "  </script>" +
                 "</body>\n" +
                 "</html>");
 

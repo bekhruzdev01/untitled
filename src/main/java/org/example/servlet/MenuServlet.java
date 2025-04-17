@@ -28,7 +28,7 @@ public class MenuServlet extends HttpServlet {
                             "            <td>" + book.getWriter() + "</td>\n" +
                             "            <td>" + book.getYear() + "-yil</td>\n" +
                             "            <td>\n" +
-                            "                <button class=\"btn btn-warning\" onClick=\"editBook\">Taxrirlash</button>\n" +
+                            "                <button class=\"btn btn-warning\" onClick=\"editBook()\">Taxrirlash</button>\n" +
                             "            </td>\n" +
                             "            <td>\n" +
                             "                <button class=\"btn btn-danger\">O'chirish</button>\n" +

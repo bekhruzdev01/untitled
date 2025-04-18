@@ -1,5 +1,6 @@
 package org.example.servlet;
 
+import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,10 +15,16 @@ import java.io.PrintWriter;
 
 @WebServlet("/books")
 public class MenuServlet extends HttpServlet {
+    @SneakyThrows
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        DbService dbService = new DbService();
+        Gson gson = new Gson();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        resp.
+        PrintWriter writer = resp.getWriter();
+        writer.write(
+                gson.toJson(dbService.getBooks())
+        );
     }
 }

@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Kitoblar sahifasi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center text-success">Kitoblar sahifasi</h1>
-        <button class="btn btn-success">Saqlash</button>
-        <table class="table">
-            <thead>
-            <tr>
-                <td>T/r</td>
-                <td>Nomi</td>
-                <td>Narxi</td>
-                <td>Yozuvchisi</td>
-                <td>Yili</td>
-                <td colspan="2">Setting</td>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-<script src="script.js">
-    data()
-</script>
+<div class="container mt-4">
+    <h1 class="text-center text-success">Kitoblar sahifasi</h1>
+    <button class="btn btn-success mb-3">Saqlash</button>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>T/r</th>
+            <th>Nomi</th>
+            <th>Narxi</th>
+            <th>Yozuvchisi</th>
+            <th>Yili</th>
+            <th colspan="2">Sozlamalar</th>
+        </tr>
+        </thead>
+        <tbody id="book-list">
+        <!-- Kitoblar bu yerga qo'shiladi -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS va script.js fayllari -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
 </body>
 </html>

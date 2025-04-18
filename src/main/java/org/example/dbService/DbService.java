@@ -33,6 +33,7 @@ public class DbService {
                             .build()
             );
         }
+        connection.close();
         return books;
     }
 

@@ -12,6 +12,7 @@ import org.example.model.Book;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet("/books")
 public class MenuServlet extends HttpServlet {
@@ -23,8 +24,10 @@ public class MenuServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter writer = resp.getWriter();
+        List<Book> books = dbService.getBooks();
+        System.out.println(books.size());
         writer.write(
-                gson.toJson(dbService.getBooks())
+                gson.toJson(books)
         );
     }
 }

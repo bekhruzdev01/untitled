@@ -2,7 +2,6 @@ package org.example;
 
 import lombok.SneakyThrows;
 import org.example.dbService.DbService;
-import org.example.model.Result;
 
 import java.util.Scanner;
 

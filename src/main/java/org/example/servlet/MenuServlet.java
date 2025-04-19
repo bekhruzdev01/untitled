@@ -1,7 +1,5 @@
 package org.example.servlet;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +11,6 @@ import org.example.model.Book;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 @WebServlet("/books")
 public class MenuServlet extends HttpServlet {
@@ -24,6 +21,7 @@ public class MenuServlet extends HttpServlet {
         resp.setContentType("application/json");
         PrintWriter writer = resp.getWriter();
         StringBuilder json = new StringBuilder();
+        json.append("[");
         for (Book book : dbService.getBooks()) {
             json.append("{");
             json.append("\"id\":").append(book.getId()).append(",");
@@ -31,11 +29,12 @@ public class MenuServlet extends HttpServlet {
             json.append("\"price\":").append(book.getPrice()).append(",");
             json.append("\"writer\":\"").append(book.getWriter()).append("\",");
             json.append("\"year\":").append(book.getYear());
-            json.append("}");
-
+            json.append("},");
         }
-        writer.write(json.toString());
-        writer.flush();
+        StringBuilder j = new StringBuilder(json.substring(0, json.length() - 1));
+        j.append("]");
 
+        writer.write(j.toString());
+        writer.flush();
     }
 }

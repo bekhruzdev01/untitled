@@ -1,6 +1,7 @@
 package org.example.servlet;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,14 +21,21 @@ public class MenuServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DbService dbService = new DbService();
-        Gson gson = new Gson();
         resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
         PrintWriter writer = resp.getWriter();
-        List<Book> books = dbService.getBooks();
-        System.out.println(books.size());
-        writer.write(
-                gson.toJson(books)
-        );
+        StringBuilder json = new StringBuilder();
+        for (Book book : dbService.getBooks()) {
+            json.append("{");
+            json.append("\"id\":").append(book.getId()).append(",");
+            json.append("\"name\":\"").append(book.getName()).append("\",");
+            json.append("\"price\":").append(book.getPrice()).append(",");
+            json.append("\"writer\":\"").append(book.getWriter()).append("\",");
+            json.append("\"year\":").append(book.getYear());
+            json.append("}");
+
+        }
+        writer.write(json.toString());
+        writer.flush();
+
     }
 }

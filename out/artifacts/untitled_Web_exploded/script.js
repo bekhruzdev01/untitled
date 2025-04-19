@@ -1,6 +1,7 @@
 async function data() {
     try {
         const response = await fetch("http://localhost:8080/books");
+        console.log(response)
         if (!response.ok) {
             throw new Error(`HTTP xatolik: ${response.status}`);
         }

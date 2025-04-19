@@ -29,7 +29,36 @@
 
 <!-- Bootstrap JS va script.js fayllari -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 <script src="script.js"></script>
 </body>
 </html>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Kitob saqlash</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/menu" method="POST">
+                    <input type="text" placeholder="Kitob nomini kiriting" id="name" name="name"/>
+                    <input type="number" placeholder="Kitob narxini kiriting" id="price" name="price"/>
+                    <input type="text" placeholder="Kitob yozuvchisini kiriting" id="writer" name="writer"/>
+                    <input type="number" placeholder="Kitob chiqqan yilni kiriting" id="year" name="year"/>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Yopish</button>
+                        <button type="submit" class="btn btn-primary">Saqlash</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

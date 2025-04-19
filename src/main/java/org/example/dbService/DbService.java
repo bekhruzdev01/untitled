@@ -37,4 +37,20 @@ public class DbService {
         return books;
     }
 
+    public Result addBook(Book book) throws SQLException, ClassNotFoundException {
+        Connection connection = getConnection();
+        CallableStatement callableStatement = connection.prepareCall("{call add_book(?, ?, ?, ?, ?, ?)}");
+        callableStatement.setString(1, book.getName());
+        callableStatement.setDouble(2, book.getPrice());
+        callableStatement.setString(3, book.getWriter());
+        callableStatement.setInt(4, book.getYear());
+        callableStatement.registerOutParameter(5, Types.VARCHAR);
+        callableStatement.registerOutParameter(6, Types.BOOLEAN);
+        callableStatement.execute();
+        return Result.builder()
+                .message(callableStatement.getString(5))
+                .success(callableStatement.getBoolean(6))
+                .build();
+    }
+
 }

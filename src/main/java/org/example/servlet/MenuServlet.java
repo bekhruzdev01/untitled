@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 import org.example.dbService.DbService;
 import org.example.model.Book;
+import org.example.model.Result;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,5 +37,18 @@ public class MenuServlet extends HttpServlet {
 
         writer.write(j.toString());
         writer.flush();
+    }
+
+    @SneakyThrows
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        double price = Double.parseDouble(req.getParameter("price"));
+        String writer = req.getParameter("writer");
+        int year = Integer.parseInt(req.getParameter("year"));
+        DbService dbService = new DbService();
+        Result result = dbService.addBook(Book.builder().name(name).price(price).writer(writer).year(year).build());
+        PrintWriter writers = resp.getWriter();
+        resp.sendRedirect("/main");
     }
 }

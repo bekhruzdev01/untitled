@@ -1,16 +1,20 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entit
+@Entity
+@Getter
+@Setter
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(unique = true, nullable = false)
-    private String Name;
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String title;
+
+    private String author;
+    private int year;
 }

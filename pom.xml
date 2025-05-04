@@ -56,9 +56,10 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.ibm.db2</groupId>
-			<artifactId>jcc</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

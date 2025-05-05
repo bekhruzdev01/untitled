@@ -50,11 +50,9 @@ public class BookController {
         return "redirect:/books";
     }
 
-    @GetMapping("/seach")
-    public String searchBooks(@RequestParam String title, Model model) {
-        model.addAttribute("books", bookService.getAll().stream()
-                .filter(book -> book.getTitle().toLowerCase().contains(title.toLowerCase()))
-                .toList());
+    @GetMapping("/search")
+    public String searchBooks(@RequestParam String keyword, Model model) {
+        model.addAttribute("books", bookService.search(keyword));
         return "index";
     }
 }

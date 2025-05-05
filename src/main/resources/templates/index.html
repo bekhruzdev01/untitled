@@ -8,6 +8,11 @@
 <div class="container mt-5">
     <h1 class="text-center">Books</h1>
 
+    <form th:action="@{/books/search}" method="get" class="mb-4">
+        <input type="text" name="keyword" class="form-control" placeholder="Search by title or author">
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </form>
+
     <!-- Add Book Form -->
     <form th:action="@{/books}" method="post" class="mb-4">
         <div class="row">

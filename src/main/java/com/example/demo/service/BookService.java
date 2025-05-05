@@ -29,4 +29,8 @@ public class BookService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+
+    public List<Book> search(String keyword) {
+        return repo(keyword, keyword);
+    }
 }

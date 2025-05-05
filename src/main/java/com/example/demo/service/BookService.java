@@ -31,6 +31,6 @@ public class BookService {
     }
 
     public List<Book> search(String keyword) {
-        return repo.findByTitleOrAuthors(keyword, keyword);
+        return repo.findByTitleContainingIgnoreCaseOrAuthorContainingIgnoreCase(keyword, keyword);
     }
 }

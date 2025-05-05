@@ -11,9 +11,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-            .authorizeHttpRequests()
-            .requestMatchers("/books/**").authenticated() // "/books/**" yo'lidagi so'rovlar uchun autentifikatsiya talab qilinadi
-            .anyRequest().permitAll(); // Barcha so'rovlarni ruxsat berish
+        .authorizeHttpRequests()
+        .anyRequest().permitAll();// Disable CSRF protection
         return http.build();
     }
 }

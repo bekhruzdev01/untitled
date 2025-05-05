@@ -7,6 +7,7 @@
         body {
             background-color: #121212;
             color: #ffffff;
+            animation: fadeIn 1s ease-in-out;
         }
         .table {
             color: #ffffff;
@@ -17,18 +18,37 @@
         .btn-primary {
             background-color: #1a73e8;
             border-color: #1a73e8;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .btn-primary:hover {
             background-color: #1558b0;
             border-color: #1558b0;
+            transform: scale(1.05);
         }
         .btn-secondary {
             background-color: #6c757d;
             border-color: #6c757d;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .btn-secondary:hover {
             background-color: #5a6268;
             border-color: #5a6268;
+            transform: scale(1.05);
+        }
+        input {
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+        input:focus {
+            box-shadow: 0 0 10px #1a73e8;
+            transform: scale(1.02);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>

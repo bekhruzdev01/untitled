@@ -101,7 +101,7 @@
                 <!-- Edit Button -->
                 <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-warning btn-sm">Edit</a>
                 <!-- Delete Button -->
-                <button class="btn btn-danger btn-sm" onclick="confirmDelete(this)" data-id="[[${book.id}]]">Delete</button>
+                <button class="btn btn-danger btn-sm" onclick="confirmDelete(this)" data-id="${book.id}">Delete</button>
             </td>
         </tr>
         </tbody>
@@ -117,7 +117,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Haqiqatdan ham ushbu kitobni o'chirmoqchimisiz?
+                Ushbu kitobni o'chirmoqchimisiz?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bekor qilish</button>

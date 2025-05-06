@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Book;
+import com.example.demo.payload.BookRequest;
 import com.example.demo.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,11 @@ public class BookController {
     }
 
     @PostMapping
-    public String addBook(@ModelAttribute Book book) {
+    public String addBook(@ModelAttribute BookRequest bookRequest) {
+        Book book = Book.builder()
+                        .title(bookRequest.getTitle())
+                        .author(bookRequest.getAuthor())
+                        .build();
         bookService.save(book);
         return "redirect:/books";
     }

@@ -57,6 +57,13 @@
 <div class="container mt-5">
     <h1 class="text-center">Books</h1>
 
+    <div class="container mt-3">
+        <div th:if="${message}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${message}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
     <form th:action="@{/books/search}" method="get" class="mb-4">
         <input type="text" name="keyword" class="form-control" placeholder="Search by title or author">
         <button type="submit" class="btn btn-primary mt-2">Search</button>

@@ -7,6 +7,7 @@ import com.example.demo.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String getAllBooks(Model model) {
         List<BookResponse> books = bookService.getAll().stream()
             .map(book -> {
@@ -35,12 +36,15 @@ public class BookController {
     }
 
     @PostMapping
-    public String addBook(@ModelAttribute BookRequest bookRequest) {
+    public String addBook(@ModelAttribute BookRequest bookRequest, RedirectAttributes redirectAttributes) {
         Book book = Book.builder()
                         .title(bookRequest.getTitle())
                         .author(bookRequest.getAuthor())
                         .build();
         bookService.save(book);
+
+        // Xabarni qo'shish
+        redirectAttributes.addFlashAttribute("message", "Kitob muvaffaqiyatli qo'shildi!");
         return "redirect:/books";
     }
 

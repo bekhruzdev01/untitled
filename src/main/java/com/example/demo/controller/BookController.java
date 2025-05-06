@@ -64,8 +64,11 @@ public class BookController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteBook(@PathVariable Long id) {
+    public String deleteBook(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         bookService.delete(id);
+
+        // Xabarni qo'shish
+        redirectAttributes.addFlashAttribute("message", "Kitob muvaffaqiyatli o'chirildi!");
         return "redirect:/books";
     }
 

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Book;
 import com.example.demo.payload.BookRequest;
+import com.example.demo.payload.BookResponse;
 import com.example.demo.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,16 @@ public class BookController {
 
     @GetMapping
     public String getAllBooks(Model model) {
-        model.addAttribute("books", bookService.getAll());
+        List<BookResponse> books = bookService.getAll().stream()
+            .map(book -> {
+                BookResponse response = new BookResponse();
+                response.setId(book.getId());
+                response.setTitle(book.getTitle());
+                response.setAuthor(book.getAuthor());
+                return response;
+            })
+            .toList();
+        model.addAttribute("books", books);
         return "index";
     }
 

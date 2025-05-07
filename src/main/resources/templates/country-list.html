@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Country List</title>
+</head>
+<body>
+<h1>Country List</h1>
+<a th:href="@{/country/add}">Add New Country</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="country : ${countries}">
+        <td th:text="${country.id}"></td>
+        <td th:text="${country.name}"></td>
+        <td th:text="${country.code}"></td>
+        <td>
+            <a th:href="@{/country/edit/{id}(id=${country.id})}">Edit</a>
+            <a th:href="@{/country/delete/{id}(id=${country.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

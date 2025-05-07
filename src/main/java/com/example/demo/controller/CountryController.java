@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Country;
+
+import com.example.demo.entity.Country;
+import com.example.demo.repository.CountryRepository;
 import com.example.demo.service.CountryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

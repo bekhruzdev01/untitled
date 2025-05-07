@@ -20,7 +20,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public String getAllBooks(Model model) {
         List<BookResponse> books = bookService.getAll().stream()
             .map(book -> {
@@ -66,8 +66,6 @@ public class BookController {
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         bookService.delete(id);
-
-        // Xabarni qo'shish
         redirectAttributes.addFlashAttribute("message", "Kitob muvaffaqiyatli o'chirildi!");
         return "redirect:/books";
     }

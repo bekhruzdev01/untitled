@@ -101,7 +101,7 @@
                 <!-- Edit Button -->
                 <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-warning btn-sm">Edit</a>
                 <!-- Delete Button -->
-                <button class="btn btn-danger btn-sm" onclick="confirmDelete(this)" data-id="${book.id}">Delete</button>
+                <button class="btn btn-danger btn-sm" onclick="confirmDelete(this)" th:attr="data-id=${book.id}">Delete</button>
             </td>
         </tr>
         </tbody>
@@ -141,3 +141,4 @@
 </script>
 </body>
 </html>
+``` 

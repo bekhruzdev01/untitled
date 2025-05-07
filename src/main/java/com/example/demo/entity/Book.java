@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.example.demo.repository.BookRepository;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +19,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     @Column(nullable = false)
     private String title;

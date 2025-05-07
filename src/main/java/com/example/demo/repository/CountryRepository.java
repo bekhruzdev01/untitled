@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
-public class CountryRepository {
+public interface CountryRepository extends JpaRepository<Country, Long> {
+   
     
 }

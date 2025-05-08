@@ -2,30 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Country List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Country List</h1>
-<a th:href="@{/country/add}">Add New Country</a>
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Code</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="country : ${countries}">
-        <td th:text="${country.id}"></td>
-        <td th:text="${country.name}"></td>
-        <td th:text="${country.code}"></td>
-        <td>
-            <a th:href="@{/country/edit/{id}(id=${country.id})}">Edit</a>
-            <a th:href="@{/country/delete/{id}(id=${country.id})}">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Country List</h1>
+    <div class="d-flex justify-content-end mb-3">
+        <a th:href="@{/country/add}" class="btn btn-primary">Add New Country</a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="country : ${countries}">
+            <td th:text="${country.id}"></td>
+            <td th:text="${country.name}"></td>
+            <td th:text="${country.code}"></td>
+            <td>
+                <a th:href="@{/country/edit/{id}(id=${country.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <a th:href="@{/country/delete/{id}(id=${country.id})}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

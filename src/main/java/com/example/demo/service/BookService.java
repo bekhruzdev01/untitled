@@ -29,7 +29,7 @@ public class BookService {
         repo.deleteById(id);
     }
 
-    public List<Book> search(String keyword) {
-        return repo.findByBook(keyword, keyword);
+    public List<Book> search(String keyword, String title) {
+        return repo.findByBooks(title, keyword);
     }
 }

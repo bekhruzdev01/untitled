@@ -38,9 +38,10 @@ public class CountryController {
     }
 
     @PostMapping("/save")
-    public String saveCountry(@ModelAttribute Country country) {
+    @ResponseBody
+    public String saveCountry(@RequestBody Country country) {
         countryService.saveCountry(country);
-        return "redirect:/country/list";
+        return "Country saved successfully!";
     }
 
     @GetMapping("/edit/{id}")

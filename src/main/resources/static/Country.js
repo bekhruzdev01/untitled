@@ -11,4 +11,4 @@ $(document).ready(function () {
         {data: "code", title: "Code"},
         ]
     })
-});
+})

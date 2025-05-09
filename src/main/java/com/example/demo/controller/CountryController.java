@@ -3,6 +3,10 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Country;
 import com.example.demo.service.CountryService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,16 +14,21 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/country")
 public class CountryController {
-    private final CountryService countryService;
+    @Autowired
+    CountryService countryService;
 
-    public CountryController(CountryService countryService) {
-        this.countryService = countryService;
+    
+
+    @GetMapping()
+    public String getCountry(Model model) {
+        return "country-list";
     }
 
+
     @GetMapping("/list")
-    public String listCountries(Model model) {
-        model.addAttribute("countries", countryService.getAllCountries());
-        return "country-list";
+    @ResponseBody
+    public List<Country> listCountries(Model model) {
+        return countryService.getAllCountries();
     }
 
     @GetMapping("/add")

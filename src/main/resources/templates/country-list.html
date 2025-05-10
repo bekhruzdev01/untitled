@@ -2,63 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Country List</title>
+    <title>Country and Regions</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <head>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- DataTables CSS va JS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h2 class="text-center text-success">Country List</h2>
-    <div class="d-flex justify-content-end mb-3">
-        <!-- Add New Country Button -->
-        <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#addCountryOffcanvas">
-            Add New Country
-        </button>
+    <h2 class="text-center text-success">Country and Regions</h2>
+
+    <!-- Select Country -->
+    <div class="mb-3">
+        <label for="countrySelect" class="form-label">Select Country</label>
+        <select id="countrySelect" class="form-select">
+            <option value="">-- Select Country --</option>
+        </select>
     </div>
-</div>
 
-<table id="countryTable" class="display">
-    </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Country and Regions</title>
 
-<!-- Offcanvas for Adding New Country -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="addCountryOffcanvas" aria-labelledby="addCountryOffcanvasLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="addCountryOffcanvasLabel">Add New Country</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center text-success">Country and Regions</h2>
+
+    <!-- Select Country -->
+    <div class="mb-3">
+        <label for="countrySelect" class="form-label">Select Country</label>
+        <select id="countrySelect" class="form-select">
+            <option value="">-- Select Country --</option>
+        </select>
     </div>
-    <div class="offcanvas-body">
-        <form id="addCountryForm">
-            <div class="mb-3">
-                <label for="countryName" class="form-label">Country Name</label>
-                <input type="text" class="form-control" id="countryName" placeholder="Enter country name" required>
-            </div>
-            <div class="mb-3">
-                <label for="countryCode" class="form-label">Country Code</label>
-                <input type="text" class="form-control" id="countryCode" placeholder="Enter country code" required>
-            </div>
-            <button type="submit" class="btn btn-success">Save</button>
-        </form>
-    </div>
-</div>
-
-<script th:src="@{Country.js}"></script>
-</script>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>

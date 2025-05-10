@@ -17,8 +17,6 @@ public class CountryController {
     @Autowired
     CountryService countryService;
 
-    
-
     @GetMapping()
     public String getCountry(Model model) {
         return "country-list";

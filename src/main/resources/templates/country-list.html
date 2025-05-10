@@ -10,11 +10,14 @@
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <head>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <!-- DataTables CSS va JS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 </head>
 <body>
 
@@ -26,10 +29,10 @@
             Add New Country
         </button>
     </div>
-
-    <table id="countryTable">
-    </table>
 </div>
+
+<table id="countryTable" class="display">
+    </table>
 
 <!-- Offcanvas for Adding New Country -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="addCountryOffcanvas" aria-labelledby="addCountryOffcanvasLabel">

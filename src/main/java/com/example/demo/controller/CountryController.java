@@ -26,10 +26,10 @@ public class CountryController {
 
 
     @GetMapping("/list")
-    @ResponseBody
-    public List<Country> listCountries(Model model) {
-        return countryService.getAllCountries();
-    }
+@ResponseBody
+public List<Country> listCountries() {
+    return countryService.getAllCountries();
+}
 
     @GetMapping("/add")
     public String addCountryForm(Model model) {

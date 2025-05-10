@@ -12,6 +12,11 @@ $(document).ready(function () {
         ]
     })
 
+    
+})
+
+$(document).ready(function () {
+
     $("#addCountryForm").submit(function (e) {
             e.preventDefault();
             const name = $("#countryName").val();

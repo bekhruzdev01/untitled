@@ -53,6 +53,6 @@ public class CountryController {
     @GetMapping("/delete/{id}")
     public String deleteCountry(@PathVariable Long id) {
         countryService.deleteCountry(id);
-        return "redirect:/country/list";
+        return "redirect:/country";
     }
 }

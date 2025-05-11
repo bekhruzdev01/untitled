@@ -4,7 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entity.Country;
 
-public interface CountryRepository extends JpaRepository<Country, Long> {
-    
+import java.util.List;
 
+public interface CountryRepository extends JpaRepository<Country, Long> {
+    List<Country> findByNameContainingIgnoreCase(String keyword);
 }

@@ -53,4 +53,10 @@ public List<Country> listCountries() {
         countryService.deleteCountry(id);
         return "redirect:/country";
     }
+
+    @GetMapping("/search")
+@ResponseBody
+public List<Country> searchCountries(@RequestParam String keyword) {
+    return countryService.searchCountries(keyword);
+}
 }

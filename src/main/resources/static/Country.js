@@ -74,3 +74,13 @@ $("#addRegionForm").submit(function (e) {
     });
 }
 )
+
+$("#searchInput").on("input", function () {
+    const keyword = $(this).val();
+    $.getJSON(`/country/search?keyword=${keyword}`, function (data) {
+        const table = $("#countryTable").DataTable();
+        table.clear();
+        table.rows.add(data);
+        table.draw();
+    });
+});

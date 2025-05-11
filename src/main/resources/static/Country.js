@@ -53,3 +53,24 @@ $(document).ready(function () {
 //             });
 //         }
 //     }
+
+$("#addRegionForm").submit(function (e) {
+    e.preventDefault();
+    const name = $("#regionName").val();
+    const countryId = $("#regionCountry").val();
+
+    $.ajax({
+        url: "/region/save",
+        type: "POST// Add New Region Form Submission",
+        contentType: "application/json",
+        data: JSON.stringify({ name: name, countryId: countryId }),
+        success: function () {
+            alert("Region added successfully!");
+            location.reload();
+        },
+        error: function () {
+            alert("Error adding region.");
+        }
+    });
+}
+)

@@ -23,7 +23,7 @@ public class CountryController {
     }
 
 
-    @GetMapping("/list")
+    @GetMapping("/country/list")
 @ResponseBody
 public List<Country> listCountries() {
     return countryService.getAllCountries();

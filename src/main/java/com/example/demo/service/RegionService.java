@@ -1,8 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Country;
 import com.example.demo.entity.Region;
-import com.example.demo.repository.CountryRepository;
 import com.example.demo.repository.RegionRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,18 +9,23 @@ import java.util.List;
 @Service
 public class RegionService {
     private final RegionRepository regionRepository;
-    private final CountryRepository countryRepository;
 
-    public RegionService(RegionRepository regionRepository, CountryRepository countryRepository) {
+    public RegionService(RegionRepository regionRepository) {
         this.regionRepository = regionRepository;
-        this.countryRepository = countryRepository;
     }
 
+    // Mamlakatga tegishli regionlarni olish
     public List<Region> getRegionsByCountryId(Long countryId) {
         return regionRepository.findByCountryId(countryId);
     }
 
-    public List<Country> searchCountries(String keyword) {
-        return countryRepository.findByNameContainingIgnoreCase(keyword);
+    // Yangi regionni saqlash
+    public void saveRegion(Region region) {
+        regionRepository.save(region);
+    }
+
+    // Regionlarni qidirish
+    public List<Region> searchRegions(String keyword) {
+        return regionRepository.findByNameContainingIgnoreCase(keyword);
     }
 }

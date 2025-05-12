@@ -15,9 +15,16 @@ public class RegionController {
         this.regionService = regionService;
     }
 
-@GetMapping("/region/by-country/{countryId}")
-@ResponseBody
-public List<Region> getRegionsByCountry(@PathVariable Long countryId) {
-    return regionService.getRegionsByCountryId(countryId);
-}
+    @GetMapping("/region/by-country/{countryId}")
+    @ResponseBody
+    public List<Region> getRegionsByCountry(@PathVariable Long countryId) {
+        return regionService.getRegionsByCountryId(countryId);
+    }
+
+    @PostMapping("/region/save")
+    @ResponseBody
+    public String saveRegion(@RequestBody Region region) {
+        regionService.saveRegion(region);
+        return "Region saved successfully!";
+    }
 }

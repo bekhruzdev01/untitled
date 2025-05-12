@@ -15,7 +15,7 @@ public class RegionController {
         this.regionService = regionService;
     }
 
-@GetMapping("/by-country/{countryId}")
+@GetMapping("/region/by-country/{countryId}")
 @ResponseBody
 public List<Region> getRegionsByCountry(@PathVariable Long countryId) {
     return regionService.getRegionsByCountryId(countryId);

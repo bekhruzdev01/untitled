@@ -14,22 +14,6 @@ public class CountryService {
         this.countryRepository = countryRepository;
     }
 
-    public List<Country> getAllCountries() {
-        return countryRepository.findAll();
-    }
-
-    public Country getCountryById(Long id) {
-        return countryRepository.findById(id).orElseThrow(() -> new RuntimeException("Country not found"));
-    }
-
-    public void saveCountry(Country country) {
-        countryRepository.save(country);
-    }
-
-    public void deleteCountry(Long id) {
-        countryRepository.deleteById(id);
-    }
-
     public List<Country> searchCountries(String keyword) {
         return countryRepository.findByNameContainingIgnoreCase(keyword);
     }

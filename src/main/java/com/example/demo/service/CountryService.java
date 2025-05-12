@@ -29,4 +29,8 @@ public class CountryService {
     public void deleteCountry(Long id) {
         countryRepository.deleteById(id);
     }
+
+    public List<Country> searchCountries(String keyword) {
+        return countryRepository.findByNameContainingIgnoreCase(keyword);
+    }
 }

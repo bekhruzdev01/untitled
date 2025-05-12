@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface RegionRepository extends JpaRepository<Region, Long> {
     List<Region> findByCountryId(Long countryId);
+    List<Region> findByNameContainingIgnoreCase(String keyword);
 }

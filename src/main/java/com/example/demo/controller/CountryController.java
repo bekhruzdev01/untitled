@@ -35,12 +35,12 @@ public List<Country> listCountries() {
         return "country-form";
     }
 
-    @PostMapping("/save")
-    @ResponseBody
-    public String saveCountry(@RequestBody Country country) {
-        countryService.saveCountry(country);
-        return "Country saved successfully!";
-    }
+    @PostMapping("/country/save")
+@ResponseBody
+public String saveCountry(@RequestBody Country country) {
+    countryService.saveCountry(country);
+    return "Country saved successfully!";
+}
 
     @GetMapping("/edit/{id}")
     public String editCountryForm(@PathVariable Long id, Model model) {

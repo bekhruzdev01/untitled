@@ -35,4 +35,9 @@ public class Product {
 
     @Column(nullable = false)
     private Double price;
+
+    @Column(nullable = false)
+    private Integer views;
+
+    private Double salePrice;
 }

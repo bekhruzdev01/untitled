@@ -1,7 +1,5 @@
 package com.example.demo.entity;
 
-import javax.persistence.*;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Cart;
 import com.example.demo.entity.CartItem;
+import com.example.demo.entity.Product;
 import com.example.demo.repository.CartRepository;
 import com.example.demo.repository.ProductRepository;
 

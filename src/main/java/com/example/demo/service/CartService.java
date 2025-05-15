@@ -20,8 +20,8 @@ public class CartService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<CartItem> getAllCartItems() {
-        return cartRepository.findAll()
+    public List<Cart> getAllCarts() {
+        return cartRepository.findAll();
     }
 
     // Savatga mahsulot qo'shish

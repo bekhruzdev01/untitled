@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -27,5 +28,8 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> items;
+
+    @Column
+    private String status; // "NEW", "PROCESSING", "DELIVERED", ...
 }
 

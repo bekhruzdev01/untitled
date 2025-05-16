@@ -31,7 +31,7 @@ public class CartItemController {
     // Savatdagi mahsulot miqdorini yangilash
     @PutMapping("/update")
     public CartItem updateCartItem(@RequestParam Long cartItemId,
-                                    @RequestParam int quantity) {
+                                   @RequestParam int quantity) {
         return cartItemService.updateCartItem(cartItemId, quantity);
     }
 

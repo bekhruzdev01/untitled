@@ -40,4 +40,12 @@ public class Product {
     private Integer views;
 
     private Double salePrice;
+
+    @Column
+    private Double discount; // foizda yoki summada
+
+    public double getDiscountedPrice() {
+        if (discount == null || discount == 0) return price;
+        return price - (price * discount / 100);
+    }
 }

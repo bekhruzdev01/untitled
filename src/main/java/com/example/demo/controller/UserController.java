@@ -37,4 +37,10 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
+
+    @PostMapping("/register")
+    public User register(@RequestBody User user) {
+        // parolni hash qilishni unutmang!
+        return userService.saveUser(user);
+    }
 }

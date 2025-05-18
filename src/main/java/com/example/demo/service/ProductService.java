@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ public interface ProductService {
     Product getProduct(Long id);
 }
 
+@Slf4j
 @Service
 class ProductServiceImpl implements ProductService {
 
@@ -55,5 +57,9 @@ class ProductServiceImpl implements ProductService {
     @Override
     public Product getProduct(Long id) {
         return getProductById(id);
+    }
+
+    public void example() {
+        log.info("Product service ishladi");
     }
 }

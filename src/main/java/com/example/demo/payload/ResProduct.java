@@ -11,4 +11,16 @@ public class ResProduct {
     private String description;
     private Double price;
     private Integer quantity;
+
+    // Yangi qo'shilgan o'zgaruvchilar
+    private String category;
+    private String brand;
+    private String sku;
+    private String imageUrl;
+    private Double discount;
+    private Double rating;
+    private Integer reviewCount;
+    private Boolean available;
+    private String createdBy;
+    private String updatedAt;
 }

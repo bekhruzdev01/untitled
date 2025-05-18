@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+public interface ProductService {
+    Product getProduct(Long id);
+}
+
 @Service
-public class ProductService {
+class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
@@ -46,5 +50,10 @@ public class ProductService {
             throw new RuntimeException("Product not found with id: " + id);
         }
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public Product getProduct(Long id) {
+        return getProductById(id);
     }
 }

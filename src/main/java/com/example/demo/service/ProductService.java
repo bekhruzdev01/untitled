@@ -20,7 +20,7 @@ class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    // Barcha mahsulotlarni olish
+    // Barcha mahsulotlarni olish++++
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }

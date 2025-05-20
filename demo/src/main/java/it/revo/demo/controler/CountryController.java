@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.revo.demo.entity.Countrty;
+import it.revo.demo.entity.Country;
 import it.revo.demo.repository.CountryRepository;
 
 @RestController
@@ -16,7 +16,7 @@ public class CountryController {
     @Autowired
     CountryRepository countryRepository;
     @GetMapping("/list")
-    public List<Countrty> getAllCountries() {
+    public List<Country> getAllCountries() {
         return countryRepository.findAll();
     }
 }

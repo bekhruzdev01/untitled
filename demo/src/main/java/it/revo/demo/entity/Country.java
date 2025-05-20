@@ -14,7 +14,7 @@ import jakarta.persistence.Column;
 @Getter
 @Setter
 @Builder
-public class Countrty {
+public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

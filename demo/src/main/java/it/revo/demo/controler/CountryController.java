@@ -1,22 +1,40 @@
 package it.revo.demo.controler;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import it.revo.demo.entity.Country;
-import it.revo.demo.repository.CountryRepository;
+import it.revo.demo.service.CountryService;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping("/country")
+@RequestMapping("/api/countries")
 public class CountryController {
-    @Autowired
-    CountryRepository countryRepository;
-    @GetMapping("/list")
-    public List<Country> getAllCountries() {
-        return countryRepository.findAll();
+
+    private final CountryService countryService;
+
+    public CountryController(CountryService countryService) {
+        this.countryService = countryService;
+    }
+
+    @GetMapping
+    public List<Country> getAll() {
+        return countryService.getAllCountries();
+    }
+
+    @PostMapping
+    public Country create(@RequestBody Country country) {
+        return countryService.createCountry(country);
+    }
+
+    @PutMapping("/{id}")
+    public Country update(@PathVariable Long id, @RequestBody Country country) {
+        return countryService.updateCountry(id, country);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        countryService.deleteCountry(id);
     }
 }

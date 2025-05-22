@@ -1,6 +1,7 @@
 package it.revo.demo.controler;
 
 import it.revo.demo.entity.Country;
+import it.revo.demo.payload.CountryDto;
 import it.revo.demo.service.CountryService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -25,7 +26,8 @@ public class CountryController {
 
     @PostMapping
     public Country create(@RequestBody Country country) {
-        return countryService.createCountry(country);
+        CountryDto countryDto = new CountryDto();
+        return countryService.createCountry(country, countryDto);
     }
 
     @PutMapping("/{id}")

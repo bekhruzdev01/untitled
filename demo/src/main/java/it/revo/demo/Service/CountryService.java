@@ -22,9 +22,8 @@ public class CountryService {
         return repository.findAll();
     }
 
-    public ApiResponse createCountry(Country country, CountryDto countryDto) {
-        Country savedCountry = repository.save(country
-        .builder()
+    public ApiResponse createCountry(CountryDto countryDto) {
+        Country savedCountry = repository.save(Country.builder()
         .id(countryDto.getId())
         .name(countryDto.getName())
         .build());

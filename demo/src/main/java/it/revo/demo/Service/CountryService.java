@@ -1,7 +1,7 @@
-package it.revo.demo.service;
+package com.example.demo.service;
 
-import it.revo.demo.entity.Country;
-import it.revo.demo.repository.CountryRepository;
+import com.example.demo.entity.Country;
+import com.example.demo.repository.CountryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,38 +10,33 @@ import java.util.Optional;
 @Service
 public class CountryService {
 
-    private final CountryRepository countryRepository;
+    private final CountryRepository repository;
 
-    public CountryService(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
+    public CountryService(CountryRepository repository) {
+        this.repository = repository;
     }
 
-    // Barcha country larni olish
     public List<Country> getAllCountries() {
-        return countryRepository.findAll();
+        return repository.findAll();
     }
 
-    // ID bo‘yicha country olish
     public Optional<Country> getCountryById(Long id) {
-        return countryRepository.findById(id);
+        return repository.findById(id);
     }
 
-    // Yangi country yaratish
     public Country createCountry(Country country) {
-        return countryRepository.save(country);
+        return repository.save(country);
     }
 
-    // Country ni yangilash
     public Country updateCountry(Long id, Country countryDetails) {
-        Country country = countryRepository.findById(id)
+        Country country = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Country not found with id " + id));
         country.setName(countryDetails.getName());
         country.setCode(countryDetails.getCode());
-        return countryRepository.save(country);
+        return repository.save(country);
     }
 
-    // Country o‘chirish
     public void deleteCountry(Long id) {
-        countryRepository.deleteById(id);
+        repository.deleteById(id);
     }
 }

@@ -1,7 +1,12 @@
-package com.example.demo.service;
+package it.revo.demo.service;
 
-import com.example.demo.entity.Country;
-import com.example.demo.repository.CountryRepository;
+import it.revo.demo.entity.Country;
+import it.revo.demo.repository.CountryRepository;
+import it.revo.demo.payload.ApiResponse;
+import it.revo.demo.payload.CountryDTO;
+import it.revo.demo.payload.CountryResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,8 +14,8 @@ import java.util.Optional;
 
 @Service
 public class CountryService {
-
-    private final CountryRepository repository;
+    @Autowired
+    CountryRepository repository;
 
     public CountryService(CountryRepository repository) {
         this.repository = repository;

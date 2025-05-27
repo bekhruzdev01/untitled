@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import it.revo.demo.entity.Country;
 
-public interface CountryRepository extends JpaRepository<Country, Long>{
-
-    
-}
+public interface countryRepository extends JpaRepository<Country, Long>{ 
+} 
+//repastoriy kurd qiladi

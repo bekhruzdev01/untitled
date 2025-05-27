@@ -1,36 +1,22 @@
 package it.revo.demo.service;
 
-import it.revo.demo.entity.Country;
-import it.revo.demo.repository.CountryRepository;
-import lombok.RequiredArgsConstructor;
-import it.revo.demo.payload.ApiResponse;
-import it.revo.demo.payload.CountryDto;
-import it.revo.demo.repository.CountryRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import it.revo.demo.entity.Country;
+import it.revo.demo.payload.ApiResponse;
+import it.revo.demo.repository.countryRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CountryService {
-    private final CountryRepository repository;
+public class countryService {
+    private final countryRepository countryRepository;
+    public ApiResponse AddCountry(Country country){
+       countryRepository.save(country);
 
-    public List<Country> getAllCountries() {
-        return repository.findAll();
-    }
-
-    public ApiResponse createCountry(CountryDto countryDto) {
-        Country savedCountry = repository.save(Country.builder()
-        .id(countryDto.getId())
-        .name(countryDto.getName())
-        .build());
-
-        return ApiResponse.builder()
-                .message("Country created successfully")
-                .success(true)
-                .build();
+       return ApiResponse.builder()
+       .message("saqlandi")
+       .success(true)
+       .build();
     }
 }

@@ -1,5 +1,7 @@
 package it.revo.demo.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import it.revo.demo.entity.Country;
@@ -9,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class countryService {
+public class CountryService {
     private final countryRepository countryRepository;
     public ApiResponse AddCountry(Country country){
        countryRepository.save(country);
@@ -18,5 +20,9 @@ public class countryService {
        .message("saqlandi")
        .success(true)
        .build();
+    }
+
+    public List<Country> GetCountry() {
+        return countryRepository.findAll();
     }
 }

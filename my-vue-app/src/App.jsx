@@ -6,7 +6,7 @@ export default function App(){
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/country" element={<CountryList/>} />
+        <Route path="/" element={<Country/>} />
       </Routes>
   </BrowserRouter>
   )

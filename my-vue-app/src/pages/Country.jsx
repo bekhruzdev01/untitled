@@ -64,6 +64,7 @@ export const Country = () => {
           <tr>
             <th>ID</th>
             <th>Nomi</th>
+            <th>Settings</th>
           </tr>
         </thead>
         <tbody>
@@ -71,10 +72,20 @@ export const Country = () => {
             <tr key={country.id}>
               <td>{country.id}</td>
               <td>{country.name}</td>
+              <td colSpan={2}>
+                <button className="btn btn-warning">Edit</button>
+                <button className="btn btn-danger">Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
+};
+
+export default CountryDelete = async (Id) => {
+  const response = await axios.delete(`http://localhost:8080/country/delete/${Id}`);
+  response.data ? alert("O'chirildi") : alert("Xatolik yuz berdi");
+  window.location.reload();
 };

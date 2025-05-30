@@ -25,4 +25,9 @@ public class CountryService {
     public List<Country> GetCountry() {
         return countryRepository.findAll();
     }
+
+    public ApiResponse deleteCountry(Long Id){
+        countryRepository.deleteById(Id);
+        return ApiResponse.builder().message("O'chirildi").success(true).build();
+    }
 }

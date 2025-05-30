@@ -30,4 +30,10 @@ public class CountryService {
         countryRepository.deleteById(Id);
         return ApiResponse.builder().message("O'chirildi").success(true).build();
     }
+
+    public ApiResponse updateCountry(Long id, Country country) {
+        country.setId(id);
+        countryRepository.save(country);
+        return ApiResponse.builder().message("saqlandi").success(true).build();
+    }
 }

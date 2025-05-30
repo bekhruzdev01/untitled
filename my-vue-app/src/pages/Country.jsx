@@ -89,3 +89,9 @@ export default CountryDelete = async (Id) => {
   response.data ? alert("O'chirildi") : alert("Xatolik yuz berdi");
   window.location.reload();
 };
+
+export default CountryEdit = async (Id, Name) => {
+  const response = await axios.put(`http://localhost:8080/country/update/${Id}`, { name: Name });
+  response.data ? alert("O'zgartirildi") : alert("Xatolik yuz berdi");
+  window.location.reload();
+};

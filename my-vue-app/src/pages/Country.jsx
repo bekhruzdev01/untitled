@@ -84,13 +84,13 @@ export const Country = () => {
   );
 };
 
-export default CountryDelete = async (Id) => {
+export const CountryDelete = async (Id) => {
   const response = await axios.delete(`http://localhost:8080/country/delete/${Id}`);
   response.data ? alert("O'chirildi") : alert("Xatolik yuz berdi");
   window.location.reload();
 };
 
-export default CountryEdit = async (Id, Name) => {
+export const CountryEdit = async (Id, Name) => {
   const response = await axios.put(`http://localhost:8080/country/update/${Id}`, { name: Name });
   response.data ? alert("O'zgartirildi") : alert("Xatolik yuz berdi");
   window.location.reload();

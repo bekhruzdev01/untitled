@@ -1,6 +1,6 @@
-package it.revo.demo.enum;
+package it.revo.demo.enums;
 
 public enum Role {
     USER, ADMIN
-    
+
 }
